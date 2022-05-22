@@ -139,11 +139,11 @@ yat:
 #   - about.md
 
 # Page default value
- defaults:
-   home:
-     heading: "Welcome to Wen Lai's Blog"
-     subheading: "MT/NLP related blogs"
-     banner: "Your image url"
+# defaults:
+#   home:
+#     heading: "Welcome to Wen Lai's Blog"
+#     subheading: "MT/NLP related blogs"
+#     banner: "https://m.facebook.com/lmu.muenchen/photos/a.198523863603690/2916553038467412/?type=3&source=44&ref=page_internal"
 
 # Banner default settings
 # These banner settings are for global banner default, but you can also
