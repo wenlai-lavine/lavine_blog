@@ -2,7 +2,7 @@
 layout: post
 title: Survey on Low-Resource Machine Translation
 subtitle: paper notes from Wen Lai
-categories: paper_notes
+categories: paper-notes
 tags: [MT, Low-Resource]
 typora-root-url: ../../lavine_blog
 ---
