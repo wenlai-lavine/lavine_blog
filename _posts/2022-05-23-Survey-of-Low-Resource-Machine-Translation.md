@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Survey on Low-Resource Machine Translation
-subtitle: paper notes from Wen Lai
 categories: paper-notes
 tags: [MT, Low-Resource]
 typora-root-url: ../../lavine_blog
@@ -64,3 +63,13 @@ And also, they introduce the commonly used techniques in the shared tasks contai
 ------
 
 In summary, this is a survey paper for those reseachers intersting in low-resource MT. we recommend the readers to read more deepth in this paper. For a summary notes and reference paper in this paper, we have writen more details in a mind map [here](https://github.com/lavine-lmu/nlp_survey_paper_notes/blob/main/MT/loresMT/Low-Resource%20Machine%20Translation.xmind).
+
+__BibTeX Reference__
+```bibtex
+@article{haddow2021survey,
+  title={Survey of Low-Resource Machine Translation},
+  author={Haddow, Barry and Bawden, Rachel and Barone, Antonio Valerio Miceli and Helcl, Jind{\v{r}}ich and Birch, Alexandra},
+  journal={arXiv preprint arXiv:2109.00486},
+  year={2021}
+}
+```
