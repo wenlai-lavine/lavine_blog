@@ -19,7 +19,7 @@ There are currently a number of other survey papers in related areas, for exampl
 
 In this survey, the authors aims to provide the broadest coverage of existing research in the field and they also contribute an extensive overview of the tools and techniques validated across 18 low-resource shared tasks that ran between 2018 and 2021. The following figure shows how we structure the diverse research methods addressing low-resource MT, and this paper follows this structure.
 
-![approach](/assets/paper-notes/2022-05-23-Survey-of-Low-Resource-Machine-Translation.assets/approach.png)
+![approach](https://github.com/lavine-lmu/lavine_blog/blob/main/assets/paper-notes/2022-05-23-Survey-of-Low-Resource-Machine-Translation.assets/approach.png)
 
 <center><b>Overview of research methods covered in this survey</b> (Haddow et al., 2021)</center>
 
@@ -49,7 +49,7 @@ In **evaluate** part, they introduce the concept of manual or automatic evaluati
 
 In **shared task** part, they survey the shared tasks that have included low-resource language pairs, and  draw common themes from the corresponding sets of system description papers, putting into perspective the methods previously described in this survey. The following table contains the shared tasks related low-reousce MT:
 
-![shared_task](/assets/paper-notes/2022-05-23-Survey-of-Low-Resource-Machine-Translation.assets/shared_task.png)
+![shared_task](https://github.com/lavine-lmu/lavine_blog/blob/main/assets/paper-notes/2022-05-23-Survey-of-Low-Resource-Machine-Translation.assets/shared_task.png)
 
 <center><b>Shared tasks that have included low-resource language pairs.</b> (Haddow et al., 2021)</center>
 
