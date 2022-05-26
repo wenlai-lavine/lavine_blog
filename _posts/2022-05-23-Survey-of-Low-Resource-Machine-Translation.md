@@ -2,7 +2,7 @@
 layout: post
 title: Survey on Low-Resource Machine Translation
 categories: paper-notes
-tags: [MT, Low-Resource]
+tags: [MT, Low-Resource, en]
 typora-root-url: ../../lavine_blog
 ---
 
