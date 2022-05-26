@@ -2,7 +2,7 @@
 layout: post
 title: Survey on Multilingual Machine Translation
 categories: paper-notes
-tags: [MT, Multilingual,en]
+tags: [MT, Multilingual, en]
 ---
 
 In this post, I would like to introduce a survey paper titled [A Survey of Multilingual Neural Machine Translation](https://dl.acm.org/doi/pdf/10.1145/3406095)  published on [ACM Computing Surveys](https://dl.acm.org/journal/csur), which is writen by the team of *NICT*. Here, I also recommend the readers to read another analysis paper of MNMT ([Kudugunta et al., 2019](https://doi.org/10.18653/v1/D19-1167)), which is also a nice paper for comparing representations across different languages, models, and layers.
