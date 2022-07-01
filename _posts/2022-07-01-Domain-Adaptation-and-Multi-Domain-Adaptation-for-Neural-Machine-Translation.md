@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Domain Adaptation and Multi-Domain Adaptation for Neural Machine Translation: A Survey
+title: Domain Adaptation and Multi-Domain Adaptation for Neural Machine Translation
 categories: paper-notes
 tags: [MT, Domain Adaptation]
 ---
