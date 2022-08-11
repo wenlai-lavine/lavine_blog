@@ -38,7 +38,7 @@ There are different contrastive learning objectives:
 
 The summaries of differnet contrastive learning objectives is as follows:
 
-![image-20220808140735565](../assets/paper-notes/2022-08-08-Contrastive-Learning-in-NLP.assets/image-20220808140735565.png)
+![image-20220808140735565](https://github.com/lavine-lmu/lavine_blog/raw/main/assets/paper-notes/2022-08-08-Contrastive-Learning-in-NLP.assets/image-20220808140735565.png)
 
 #### 2. Data Sampling and Augmentation Strategies
 
@@ -76,7 +76,7 @@ The summaries of differnet contrastive learning objectives is as follows:
 
 Contrastive learning has shown success in many NLP tasks.
 
-![image-20220808143149679](../assets/paper-notes/2022-08-08-Contrastive-Learning-in-NLP.assets/image-20220808143149679.png)
+![image-20220808143149679](https://github.com/lavine-lmu/lavine_blog/raw/main/assets/paper-notes/2022-08-08-Contrastive-Learning-in-NLP.assets/image-20220808143149679.png)
 
 For the paper in different fileds, please refer to the paper link in the [original tutorials paper](https://aclanthology.org/2022.naacl-tutorials.6.pdf).
 
