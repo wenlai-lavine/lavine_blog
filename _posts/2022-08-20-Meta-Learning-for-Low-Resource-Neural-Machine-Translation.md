@@ -15,7 +15,11 @@ In machine translation area, ([Gu et al., 2018](https://aclanthology.org/D18-139
 
 In this paper, they proposed to using meta-learning algorithm for low-resource neural machine translation. More specifically, they extend the idea of model-agnostic meta-learning (MAML, [Finn et al., 2017]()) in multilingual scenarios. Figure 1 illustrate the overall framework of this paper.
 
-<img src="https://github.com/lavine-lmu/lavine_blog/raw/main/assets/paper-notes/2022-08-20/framework_gu.pdf">
+![image-20220808140735565](https://github.com/lavine-lmu/lavine_blog/raw/main/assets/paper-notes/2022-08-08-Contrastive-Learning-in-NLP.assets/image-20220808140735565.png)
+
+![](../assets/paper-notes/2022-08-20-Meta-Learning-for-Low-Resource-Neural-Machine-Translation.assets/framework_gu-20220822144120409.pdf)
+
+
 
 <center><b>Fig.1</b> Framework of Gu et al., 2018</center>
 
@@ -35,7 +39,7 @@ In their expeiments, they using 18 high-resource source tasks and 5 low-resource
 
 In this paper, they present a meta-learning approach (**Meta-MT**) that learns to adapt neural machne translation systems to new domains given only a small amount of training data in that domain. Figure 2 illustrate the difference between traditional fine-tuning and meta-learning.
 
-<img src="https://github.com/lavine-lmu/lavine_blog/raw/main/assets/paper-notes/2022-08-20/meta_learning_sharf.pdf" width='400px'>
+![](../assets/paper-notes/2022-08-20-Meta-Learning-for-Low-Resource-Neural-Machine-Translation.assets/meta_learning_sharf.pdf)
 
 <p align='left'><b>Figure.2</b> <b>[Top-A]</b> a training step of META_MT. <b>[Bottom-B]</b> Differences between  meta-learning and Traditional fine-tuning. Wide lines represent high resource domains (Medical, News), while thin lines represent low-resource domains (TED, Books). Traditional fine-tuning may favor high-resource domains over low-resource ones while meta-learning aims at learning a good initialization that can be adapted to any domain with minimal training samples. </p>
 
@@ -55,7 +59,7 @@ Intuitively, meta-learning should optimize for a representation $\theta$ that ca
 
 At training time, META-MT will treat one of the simulated domains $\Tau$ as if it were a domain adaptation dataset. At each time step, it will update the current model representation from $\theta$ to $\theta'$ by fine-tuning on $\Tau_{\textrm{support}}$ and then ask: what is  the meta-learning loss estimate given $\theta$, $\theta'$, and $\Tau_{query}$? The model representation $\theta$ is then updated to minimize this meta-learning loss. Algorithm 1 illustrates the details of the whole meta-train procedure.
 
-<img src="https://github.com/lavine-lmu/lavine_blog/blob/main/assets/paper-notes/2022-08-20/sharf_alg.png" alt="alg" style="zoom:67%;" />
+![](../assets/paper-notes/2022-08-20-Meta-Learning-for-Low-Resource-Neural-Machine-Translation.assets/sharf_alg-20220822144313475.png)
 
 Over learning rounds, META_MT selects a random batch of training tasks from the meta-training dataset and simulates the test-time behavior on these tasks (Line 2). The core functionality is to observe how the current model representation $\theta$ is adapted for each task in the batch, and to use this information to improve $\theta$ by optimizing the meta-learning loss (Line 7). META-MT achieves this by simulating a domain adaptation setting by fine-tuning on the task specific support set (Line 4). This yields, for each task $\Tau_i$, a new adapted set of parameters $\theta'_i$ (Line 5). These parameters are evaluated on the query sets for each task $\Tau_{i,\textrm{query}}$, and a meta-gradient w.r.t the original model representation $\theta$ is used to improve $\theta$ (Line 7).
 
