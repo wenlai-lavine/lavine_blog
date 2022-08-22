@@ -15,10 +15,6 @@ In machine translation area, ([Gu et al., 2018](https://aclanthology.org/D18-139
 
 In this paper, they proposed to using meta-learning algorithm for low-resource neural machine translation. More specifically, they extend the idea of model-agnostic meta-learning (MAML, [Finn et al., 2017]()) in multilingual scenarios. Figure 1 illustrate the overall framework of this paper.
 
-![image-20220808140735565](https://github.com/lavine-lmu/lavine_blog/raw/main/assets/paper-notes/2022-08-08-Contrastive-Learning-in-NLP.assets/image-20220808140735565.png)
-
-![](../assets/paper-notes/2022-08-20-Meta-Learning-for-Low-Resource-Neural-Machine-Translation.assets/framework_gu-20220822144120409.pdf)
-
 
 
 <center><b>Fig.1</b> Framework of Gu et al., 2018</center>
