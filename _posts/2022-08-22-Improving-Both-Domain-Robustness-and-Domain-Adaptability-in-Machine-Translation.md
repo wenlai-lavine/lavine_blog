@@ -9,7 +9,7 @@ In [previous post](https://lavine-lmu.github.io/lavine_blog/notes/2022/08/20/Met
 
 ### Background and Motivation
 
-The success of Neural Machine Translation (NMT; \citealp{bahdanau2014neural,vaswani2017attention}) heavily relies on large-scale high-quality parallel data, which is difficult to obtain in some domains. [Chu et al., 2018](https://aclanthology.org/C18-1111/) summarized current NMT domain adaptation methods into two types: data-centric and model-centric. We highly recommend the reader to read this survey paper to get an overview of NMT domain adaptation. Also, we recommend the reader to read this [survey paper](https://arxiv.org/abs/2007.09604) to understand the meta-learning technologies using in NLP community.
+The success of Neural Machine Translation (NMT) heavily relies on large-scale high-quality parallel data, which is difficult to obtain in some domains. [Chu et al., 2018](https://aclanthology.org/C18-1111/) summarized current NMT domain adaptation methods into two types: data-centric and model-centric. We highly recommend the reader to read this survey paper to get an overview of NMT domain adaptation. Also, we recommend the reader to read this [survey paper](https://arxiv.org/abs/2007.09604) to understand the meta-learning technologies using in NLP community.
 
 There are two major problems in NMT domain adaptation: domain robustness and domain adaptability.
 
@@ -31,24 +31,26 @@ Although effectively, current methods has usually focused on only one aspect of 
 
 In this paper, we propose a novel approach, ***RMLNMT***, which combines meta-learning with a word-level domain-mixing system (for improving domain robustness) in a single model. RMLNMT consists of three parts: Word-Level Domain Mixing, Domain Classification, and Online Meta-Learning. The following fingure illustrates our proposed methods.
 
-+ Word-level Domain Mixing
+![](https://github.com/lavine-lmu/lavine_blog/raw/main/assets/paper-notes/2022-08-22-RMLNMT/lai-2022.png)
+
++ **Word-level Domain Mixing**
   + The domain of a word in the sentence is not necessarily consistent with the sentence domain. Therefore, we assume that every word in the vocabulary has a domain proportion, which indicates its domain preference.
   + Each domain has its own multi-head attention modules. Therefore, we can integrate the domain proportion of each word into its multi-head attention module.
   + Apply the domain mixing scheme in the same way for all attention layers and the fully-connected layers.
   + The model can be efficiently trained by minimizing the composite loss: $$L^{*}=L_{\mathrm{gen}}(\theta)+L_{\mathrm{mix}}(\theta)$$
 
-+ Domain Classification
++ **Domain Classification**
 
   + [Rieß et al. (2021)](https://aclanthology.org/2021.mtsummit-research.15.pdf) show that using scores from simple domain classifier are more effective than scores from language models for NMT domain adaptation.
   + We compute domain similarity using a sentence-level classifier, but in contrast with previous work, we based our classifier on a pre-trained language model (BERT).
 
-+ Oneline Meta-Learning
++ **Oneline Meta-Learning**
 
   + We use domain classification scores as the curriculum to split the corpus into small tasks, so that the sentences more similar to the general domain sentences are selected in early tasks.
 
-  + Previous meta-learning approaches (\textcolor{blue}{Sharaf et al., 2020}; \textcolor{blue}{Zhan et al., 2021}) are based on token-size based sampling, which proved be not balanced since some tasks did not contain all seen domains, especially in the early tasks. To address these issues, we sample the data uniformly from the domains to compensate for imbalanced domain distributions based on domain classifier scores.
+  + Previous meta-learning approaches are based on token-size based sampling, which proved be not balanced since some tasks did not contain all seen domains, especially in the early tasks. To address these issues, we sample the data uniformly from the domains to compensate for imbalanced domain distributions based on domain classifier scores.
 
-  + Following the balanced sampling, the process of meta-training is to update the current model parameter from $\theta$ to $\theta^{\prime}$ using a MAML (\textcolor{blue}{Finn et al., 2017}) objective with the traditional sentence-level meta-learning loss $\mathcal{L}_{\mathcal{T}}\left(f_{\theta}\right)$ and the word-level loss $\Gamma_{\mathcal{T}}\left(f_{\theta}\right)$ ($L^{*}$ of $\mathcal{T}$).
+  + Following the balanced sampling, the process of meta-training is to update the current model parameter from $\theta$ to $\theta^{\prime}$ using a MAML (Finn et al., 2017) objective with the traditional sentence-level meta-learning loss $\mathcal{L}_{\mathcal{T}}\left(f_{\theta}\right)$ and the word-level loss $\Gamma_{\mathcal{T}}\left(f_{\theta}\right)$ ($L^{*}$ of $\mathcal{T}$).
     $$
     L_{\mathcal{T}}\left(f_{\theta}\right) = \mathcal{L}_{\mathcal{T}}\left(f_{\theta}\right) +  \Gamma_{\mathcal{T}}\left(f_{\theta}\right)
     $$
