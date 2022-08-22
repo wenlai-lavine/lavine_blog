@@ -1,17 +1,11 @@
-
-
-```tex
 ---
 layout: post
 title: Meta-Learning for Neural Machine Translation
 categories: notes
 tags: [MT, NLP, Meta-Learning]
 ---
-```
 
-```
-Meta-learning, also known as "learning to learn", has been shown to allow faster finetuning, converge to better performance, and achieve outstanding results for few-shot learning in many applications. This post ... ...
-```
+Meta-learning, also known as "learning to learn", has been shown to allow faster finetuning, converge to better performance, and achieve outstanding results for few-shot learning in many applications. 
 
 It is believed that meta-learning has excellent potential to be applied in NLP, and some works has been proposed with notable achievements in several relevant problems, e.g., relation extraction, machine translation, and dialogue generation and state tracking. However, it does not catch the same level of attention as in the Computer Vision (CV) community. For meta-learning methods in NLP, we recommend the readers to read the survey paper writen by ([Yin et al., 2020](https://arxiv.org/abs/2007.09604))and the tutorial in [ACL 2021](https://aclanthology.org/2021.acl-tutorials.3/).
 
@@ -21,7 +15,7 @@ In machine translation area, ([Gu et al., 2018](https://aclanthology.org/D18-139
 
 In this paper, they proposed to using meta-learning algorithm for low-resource neural machine translation. More specifically, they extend the idea of model-agnostic meta-learning (MAML, [Finn et al., 2017]()) in multilingual scenarios. Figure 1 illustrate the overall framework of this paper.
 
-![framework of Gu et., al 2018](/Users/lavine/papers reading/blog_wrting/1.meta-learning/blog/img/framework_gu.pdf)
+![framework of Gu et., al 2018](../assets/paper-notes/2022-08-11-Contrastive-Learning-in-NLP的副本.assets/framework_gu.pdf)
 
 
 
@@ -43,7 +37,7 @@ In their expeiments, they using 18 high-resource source tasks and 5 low-resource
 
 In this paper, they present a meta-learning approach (**Meta-MT**) that learns to adapt neural machne translation systems to new domains given only a small amount of training data in that domain. Figure 2 illustrate the difference between traditional fine-tuning and meta-learning.
 
-<img src="/Users/lavine/papers reading/blog_wrting/1.meta-learning/blog/img/meta_learning_sharf.pdf" width='400px'>
+<img src="../assets/paper-notes/2022-08-11-Contrastive-Learning-in-NLP的副本.assets/meta_learning_sharf.pdf" width='400px'>
 
 <p align='left'><b>Figure.2</b> <b>[Top-A]</b> a training step of META_MT. <b>[Bottom-B]</b> Differences between  meta-learning and Traditional fine-tuning. Wide lines represent high resource domains (Medical, News), while thin lines represent low-resource domains (TED, Books). Traditional fine-tuning may favor high-resource domains over low-resource ones while meta-learning aims at learning a good initialization that can be adapted to any domain with minimal training samples. </p>
 
@@ -63,7 +57,7 @@ Intuitively, meta-learning should optimize for a representation $\theta$ that ca
 
 At training time, META-MT will treat one of the simulated domains $\Tau$ as if it were a domain adaptation dataset. At each time step, it will update the current model representation from $\theta$ to $\theta'$ by fine-tuning on $\Tau_{\textrm{support}}$ and then ask: what is  the meta-learning loss estimate given $\theta$, $\theta'$, and $\Tau_{query}$? The model representation $\theta$ is then updated to minimize this meta-learning loss. Algorithm 1 illustrates the details of the whole meta-train procedure.
 
-<img src="/Users/lavine/papers reading/blog_wrting/1.meta-learning/blog/img/sharf_alg.png" alt="alg" style="zoom:67%;" />
+<img src="../assets/paper-notes/2022-08-11-Contrastive-Learning-in-NLP的副本.assets/sharf_alg.png" alt="alg" style="zoom:67%;" />
 
 Over learning rounds, META_MT selects a random batch of training tasks from the meta-training dataset and simulates the test-time behavior on these tasks (Line 2). The core functionality is to observe how the current model representation $\theta$ is adapted for each task in the batch, and to use this information to improve $\theta$ by optimizing the meta-learning loss (Line 7). META-MT achieves this by simulating a domain adaptation setting by fine-tuning on the task specific support set (Line 4). This yields, for each task $\Tau_i$, a new adapted set of parameters $\theta'_i$ (Line 5). These parameters are evaluated on the query sets for each task $\Tau_{i,\textrm{query}}$, and a meta-gradient w.r.t the original model representation $\theta$ is used to improve $\theta$ (Line 7).
 
@@ -73,7 +67,7 @@ In experiments, they evaluate the proposed meta-learning strategy on ten domains
 
 In this paper, they present a novel NMT model with a new word embedding transition technique for fast domain adaptation. They propose to split parameters in the model into two groups: model parameters and meta parameters. The former are used to model the translation while the latter are used to adjust the representational space to generalize the model to different domains. Figure 3 illustrate the archtectures of the proposed model.
 
-<img src="/Users/lavine/papers reading/blog_wrting/1.meta-learning/blog/img/meta_Li.png">
+<img src="../assets/paper-notes/2022-08-11-Contrastive-Learning-in-NLP的副本.assets/meta_Li.png">
 
 
 
@@ -93,12 +87,6 @@ Motivated by [Jiang et al., 2018](https://aclanthology.org/2020.acl-main.165.pdf
 This score is used to determine a curriculum to improve the meta-learning process. Finally, we improve domain adaptability by integrating the domain-mixing model into a meta-learning framework with the domain classifier using a balanced sampling strategy.
 
 The whole framework of this paper is shown as follows:
-
-
-
-
-
-
 
 
 
