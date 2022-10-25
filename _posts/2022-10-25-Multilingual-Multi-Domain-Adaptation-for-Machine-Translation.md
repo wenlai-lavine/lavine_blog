@@ -32,7 +32,7 @@ To this end, we proposed $m^4Adapter$, which facilitates the transfer between di
 + **Meta-Adapter**
   + We inserts adapter layers into the meta-learning training process. Different from the traditional adapter training process, we only need to train a single meta-adapter to adapt to all new language pairs and domains. The architecture of the Meta-Adapter is as shown in Figure 1.
 
-!(https://github.com/lavine-lmu/lavine_blog/raw/main/assets/paper-notes/2022-10-25-M4Adapter/m4adapter.png)
+![m4Adapter](https://github.com/lavine-lmu/lavine_blog/raw/main/assets/paper-notes/2022-10-25-M4Adapter/m4adapter.png)
 
 ### Meta-Adaptation
 
