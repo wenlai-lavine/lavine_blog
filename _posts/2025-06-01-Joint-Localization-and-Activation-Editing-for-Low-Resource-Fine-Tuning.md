@@ -17,7 +17,7 @@ z_t^{(l,i)^{\prime}} =  (\mathbf{1} + g_{m}^{(l,i)} \cdot m^{(l,i)}) \odot z_{t}
 $$
 where $\mathbf{1} \in \mathbb{R}^{d_l} $ is a vector of ones, $\odot$ denotes elementwise multiplication. Equivalently, one can think of separately adding $a^{(l,i)}$ and scaling by $m^{(l,i)}$; when $a^{(l,i)}=m^{(l,i)}=0$, the head is unchanged.) As shown in Figure 1, when both gates are zero the head’s output is left *identical* to before, so only a subset of heads ever get modified. Importantly, both gates are learnable and applied during training: the model effectively decides **which heads** to “turn on” for editing and whether to apply an additive or multiplicative (or hybrid) adjustment. This stands in contrast to previous work like LoFIT, which required manually picking heads in advance. LoFIT first uses multiplicative probes to identify a fixed set of heads and then restarts training with additive edits on those heads – a cumbersome two-phase process. JoLA integrates these choices end-to-end, making adaptation fully data-driven.
 
-![m4Adapter](https://github.com/lavine-lmu/lavine_blog/raw/main/assets/paper-notes/JoLA/jola.png)
+<img src="https://github.com/lavine-lmu/lavine_blog/raw/main/assets/paper-notes/JoLA/jola.png" alt="jola" style="zoom:20%;" />
 
 Key components of JoLA’s method are:
 
